@@ -8,6 +8,8 @@ g = globals()
 for c in dir(msoff.constants): g[c] = getattr(msoff.constants, c)
 for c in dir(msppt.constants): g[c] = getattr(msppt.constants, c)
 
+# See http://www.lqexcel.com/powerpoint.php as PPT reference
+
 Application = win32com.client.Dispatch('PowerPoint.Application')
 Application.Visible = True
 
@@ -21,7 +23,7 @@ fp = os.path.join(pn, fn)
 
 Presentation = Application.Presentations.Open(r'%s' % fp)
 for Slide in Presentation.Slides:
-    ImageName = '%s (%s) %s' % (bn, Slide.SlideIndex, Slide.Shapes.Title.TextFrame.TextRange.Text)
+    ImageName = '%s (%s) %s' % (bn, Slide.SlideNumber, Slide.Shapes.Title.TextFrame.TextRange.Text)
     ImageName = re.sub('[^-a-zA-Z0-9_() ]+', '', ImageName) # slugify
     ImageName += '.png'
     ImagePath = os.path.join(pn, ImageName)
