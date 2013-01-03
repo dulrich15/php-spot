@@ -41,6 +41,19 @@ blockquote cite {
     text-align:right; 
 }
 
+.nobr {
+    white-space:nowrap;
+}
+.l {
+    text-align:left;
+}
+.c {
+    text-align:center;
+}
+.r {
+    text-align:right;
+}
+
 /* LAYOUT */
 
 #col1, #col2, #col3 {

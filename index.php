@@ -27,7 +27,7 @@ include "docs.php";
 
     <header>
 
-        <h1>Physics <?php echo $qtr; ?>, <?php echo $season; ?></h1>
+        <h1><span class="nobr">Physics <?php echo $qtr; ?>,</span> <span class="nobr"><?php echo $season; ?></span></h1>
         <p>
             <form method="post" action="">
                 Login? <input type="password" name="id" onLoad="this.focus()">
@@ -58,23 +58,24 @@ include "docs.php";
             <li><a href='resources/notations.pdf'>Notations</a></li>
         </ul>
 
-        <h2>My archives...</h2>
-        <ul>
-            <li>2012 Lecture Notes<br>
-                <a href='resources/2012p201ln.pdf'>201</a> |
-                <a href='resources/2012p202ln.pdf'>202</a> |
-                <a href='resources/2012p203ln.pdf'>203</a>
-            </li>
-            <li>2011 Lecture Notes<br>
-                <a href='resources/2011p200ln.pdf'>201&ndash;202&ndash;203</a>
-            </li>
-        </ul>
-
         <p>Still looking for help? Check out <a href="http://physicsforums.com">PhysicsForums.com</a>!</p>
         
     </div>
 
     <div id="col3" class="lastcol">
+
+        <h2>My archives</h2>
+        <dl>
+            <dt>2012 Lecture Notes</dt>
+            <dd>
+                <a href='resources/2012p201ln.pdf'>201</a> |
+                <a href='resources/2012p202ln.pdf'>202</a> |
+                <a href='resources/2012p203ln.pdf'>203</a>
+            </dd>
+            </li>
+            <dt>2011 Lecture Notes<dt>
+            <dd><a href='resources/2011p200ln.pdf'>201&ndash;202&ndash;203</a></dd>
+        </dl>
 
         <h2>My contact info</h2>
         <dl>
@@ -92,12 +93,16 @@ include "docs.php";
             <dd>225 on Wednesday</dd>
         </dl>
 
+        <?php
+        /*
         <h2>Related courses</h2>
         <ul>
             <li><a href="?qtr=201">201</a></li>
             <li><a href="?qtr=202">202</a></li>
             <li><a href="?qtr=203">203</a></li>
         </ul>
+        */
+        ?>
 
     </div>
 
