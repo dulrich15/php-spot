@@ -1,11 +1,11 @@
 body {
     margin:0em;
     padding:0.5em;
-    max-width:600px;
+    max-wi dth:600px;
     background:#ffe;
 }
 body * { 
-    font-family:georgia,sans-serif; 
+    font-family:sans-serif; 
 }
 
 table { 
@@ -27,6 +27,7 @@ table td.blank {
 }
 dl dt { 
     font-weight:bold; 
+    margin:0.5em 0;
 }
 dl dd { 
     margin-left:1em; 
@@ -38,4 +39,15 @@ blockquote cite {
     margin-left:2em;
     display:block;
     text-align:right; 
+}
+
+/* LAYOUT */
+
+#col1, #col2, #col3 {
+    max-width:280px;
+    margin-right:40px;
+    float:left;
+}
+footer {
+    clear:left;
 }
