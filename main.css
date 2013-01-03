@@ -1,98 +1,41 @@
-/* LAYOUT */
+body {
+    margin:0em;
+    padding:0.5em;
+    max-width:600px;
+    background:#ffe;
+}
+body * { 
+    font-family:georgia,sans-serif; 
+}
 
-/* Classifications */
-.content_descriptor { display:none; }
-ul.horizontal li { display:inline; }
-#menu li { display:inline; }
-#supp cite { display:block; }
-#info { position:absolute; }
-#supp { position:absolute; }
-#qlnk { position:absolute; }
-
-/* Positioning */
-#info { top:80px; left:0px; }
-#supp { top:80px; right:0px; }
-#qlnk { top:5px; right:5px; }
-#info { overflow:hidden; }
-
-/* Dimensions */
-#info { width:165px; }
-#supp { width:165px; }
-
-/* Margins */
-body { margin:0; }
-table { margin:0; }
-table caption { margin-top:0.5em; }
-#head h1 { margin:5px; }
-#menu * { margin:0px; }
-#main { margin-left:185px; }
-#main { margin-right:185px; }
-#supp blockquote { margin:0; }
-#supp cite { margin-left:2em; }
-#supp ul li { margin:0 0 0.25em -1em; }
-#info dd { margin-left:1em; }
-#foot { margin-left:185px; }
-#foot { margin-right:185px; }
-
-/* Padding */
-body { padding:0; }
-table th,td { padding:5px 10px; }
-#head h1 { padding-left:200px; }
-#menu { padding:0; }
-#menu ul { padding:0; }
-#menu ul * { padding:5px; }
-#main { padding:20px; }
-#main { padding-top:0; }
-#supp { padding:10px; }
-#info { padding:10px; }
-
-/* Lists */
-ul.horizontal { list-style:none; }
-#menu ul { list-style:none; }
-
-/* COLORS */
-
-/* Backgrounds */
-body { background:#FFFFEE; }
-table { background:#EEEEEE; }
-table th { background:#F8F8F8; }table td { background:#FFFFFF; }table td.blank { background:#EFEFEF; }#head h1 { background:url(logo.png) no-repeat left center; }
-#menu { background:#FFFFEE; }
-#menu li { background:#EEEEFF; }
-#menu li:hover { background:#FFFF88; }
-#main { background:#FFFFFF; }
-
-/* Borders */
-#menu { border-top:1px solid #8888FF; }
-#menu { border-bottom:1px solid #8888FF; }
-#menu li { border:1px solid #8888FF; }
-#main { border:1px solid #8888FF; }
-#main { border-top:1px solid #FFFFFF; }
-
-/* TEXT EFFECTS */
-
-/* Fonts */
-table caption { font-weight:bold; }
-table caption { font-size:1.25em; }
-#qlnk { font-size:0.7em; }
-#menu li a { text-decoration:none; }
-#info { font-size:0.7em; }
-#supp { font-size:0.7em; }
-#foot { font-size:0.7em; }
-#info dl dt { font-weight:bold; }
-#foot {font-style:italic; }
-
-/* Text */
-body * { font-family:georgia,sans-serif; }
-table caption { text-align:left; }
-table th { text-align:left; }
-table td { text-align:center; }
-#head h1 { line-height:60px; }
-#head h1 { white-space:nowrap; }
-#menu { text-align:center; }
-#foot { text-align:center; }
-#foot { color:gray; }
-#qlnk { color:gray; }
-#supp  cite { text-align:right; }
-.l { text-align:left; }
-.c { text-align:center; }
-.r { text-align:right; }
+table { 
+    margin:0;
+    background:#eee; 
+}
+table th,td { 
+    padding:5px 10px; 
+    text-align:center;
+}
+table th { 
+    background:#ddd; 
+}
+table td { 
+    background:#fff;
+}
+table td.blank { 
+    background:#eee; 
+}
+dl dt { 
+    font-weight:bold; 
+}
+dl dd { 
+    margin-left:1em; 
+}
+blockquote { 
+    margin:0; 
+}
+blockquote cite { 
+    margin-left:2em;
+    display:block;
+    text-align:right; 
+}

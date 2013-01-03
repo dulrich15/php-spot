@@ -44,7 +44,7 @@ function read_csv($tablename)
 
 if ( ! is_dir($doc_folder) )
 {
-    $docs = "WIP";
+    $docs = "<p>Work in progress</p>";
 }
 else
 {
@@ -136,7 +136,6 @@ else
     if ( ! is_dir($supp_folder) )
     {
         $supp_array = read_csv('supp');
-        $supp .= "<h3>Supplemental Docs</h3>";
         $supp .= "<ul>";
         foreach ( $supp_array as $s )
         {
