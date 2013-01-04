@@ -1,16 +1,8 @@
 <?php
 
 session_start();
-$_SESSION['id'] = md5($_POST['id']);
-
-$y = 2013;
-$qtr = ( $_GET['qtr'] ) ? $_GET['qtr'] : 201;
-
-if ( $qtr == 201 ) $season = "Winter $y";
-if ( $qtr == 202 ) $season = "Spring $y";
-if ( $qtr == 203 ) $season = "Summer $y";
-
-include "docs.php";
+include_once "utils.php";
+include_once "docs.php";
 
 ?>
 <html>
@@ -19,37 +11,35 @@ include "docs.php";
 
     <title>Physics 200 Series</title>
     <link rel='stylesheet' type='text/css' href='main.css'>
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
     
 </head>
 
-<body onLoad="document.forms[0].elements[0].focus()">
+<body>
 
     <header>
 
-        <h1><span class="nobr">Physics <?php echo $qtr; ?>,</span> <span class="nobr"><?php echo $season; ?></span></h1>
-        <p>
-            <form method="post" action="">
-                Login? <input type="password" name="id" onLoad="this.focus()">
-            </form>
-        </p>
+        <h1>Physics&nbsp;<?php echo $term; ?>, <?php echo $season; ?>&nbsp;<?php echo $year; ?></h1>
+<?php 
+if ( $user )
+    echo "        <div id=\"login\">Hi " . $user['first'] . " &mdash; <a href=\"logout.php\">Logout?</a></div>\n";
+else
+    echo "        <div id=\"login\"><a href=\"login.php\">Login</a></div>\n";
+?>
 
     </header>
 
     <div id="col1">
 
-        <h2>Weekly docs</h2>
-        <?php echo $wkly; ?>
+        <h2>Weekly docs</h2><?php echo $wkly; ?>
         
     </div>
 
     <div id="col2">
 
-        <h2>Class docs</h2>
-        <?php echo $docs; ?>
+        <h2>Class docs</h2><?php echo $docs; ?>
 
-        <h2>Extra docs</h2>
-        <?php echo $supp; ?>
+        <h2>Extra docs</h2><?php echo $supp; ?>
 
         <h2>General docs</h2>
         <ul>
