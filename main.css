@@ -57,7 +57,7 @@ blockquote cite {
 /* LAYOUT */
 
 #col1, #col2, #col3 {
-    max-width:280px;
+    max-width:730px;
     margin-right:40px;
     float:left;
 }

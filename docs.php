@@ -46,7 +46,7 @@ if ( is_dir($doc_folder) )
 {
     if ( $_SESSION['id'] ) 
     {
-        $users = read_csv('users');
+        $users = array_merge(read_csv('users'),read_csv('roster'));
         $user = '';
         foreach ( $users as $key => $value )
         {
@@ -55,6 +55,11 @@ if ( is_dir($doc_folder) )
                 $user = $value;
             }
         }
+    }
+    $max_access = $user['access'];
+
+    if ( $_SESSION['id'] ) 
+    {
     }
     $max_access = $user['access'];
 
