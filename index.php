@@ -9,8 +9,8 @@ include_once "docs.php";
 
 <head>
 
-    <title>Physics 200 Series</title>
-    <link rel='stylesheet' type='text/css' href='main.css'>
+    <title>Physics <?php echo $term; ?>, <?php echo $season; ?> <?php echo $year; ?></title>
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     
 </head>
@@ -19,23 +19,25 @@ include_once "docs.php";
 
     <header>
 
-        <h1>Physics&nbsp;<?php echo $term; ?>, <?php echo $season; ?>&nbsp;<?php echo $year; ?></h1>
+        <h1>Physics&nbsp;<?php echo $term; ?></h1>
+        <p class="c"><?php echo $season; ?> <?php echo $year; ?></p>
+        <img src="assets/img/201.jpg">
 <?php 
 if ( $user )
-    echo "        <div id=\"login\">Hi " . $user['first'] . " &mdash; <a href=\"logout.php\">Logout?</a></div>\n";
+    echo "        <p id=\"login\">Hi " . $user['first'] . " &mdash; <a href=\"logout.php\">Logout?</a></p>\n";
 else
-    echo "        <div id=\"login\"><a href=\"login.php\">Login</a></div>\n";
+    echo "        <p id=\"login\"><a href=\"login.php\">Login</a></p>\n";
 ?>
 
     </header>
 
-    <div id="col1">
+    <div class="col">
 
         <h2>Weekly docs</h2><?php echo $wkly; ?>
         
     </div>
 
-    <div id="col2">
+    <div class="col">
 
         <h2>Class docs</h2><?php echo $docs; ?>
 
@@ -52,7 +54,7 @@ else
         
     </div>
 
-    <div id="col3" class="lastcol">
+    <div class="col lastcol">
 
         <h2>My archives</h2>
         <dl>

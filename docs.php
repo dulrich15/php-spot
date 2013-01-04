@@ -81,7 +81,7 @@ $wkly .= "        </dl>\n";
 $wkly .= "\n";
 for ( $w = 1; $w <= $nbr_weeks; $w++ )
 {
-    $wkly .= "        <table style=\"width:320px\">\n";
+    $wkly .= "        <table id=\"wklydocs\">\n";
     $wkly .= "            <tr>\n";
     $wkly .= "                <th colspan=2>Week " . $w . "</td>\n";
     $wkly .= "            </tr>\n";
@@ -100,7 +100,7 @@ for ( $w = 1; $w <= $nbr_weeks; $w++ )
                         $weekday = array('Mon','Tue','Wed','Thu','Fri','Sat','Sun');
                         
                         $wkly .= "            <tr>\n";
-                        $wkly .= "                <td>" . $weekday[$doc['day']] . "</td>\n";
+                        $wkly .= "                <td style=\"width:1px\">" . $weekday[$doc['day']] . "</td>\n";
                         $wkly .= "                <td class=\"l\"><a href=\"" . $doc_folder . "/" . $doc['filename'] . "\">" . $anchortext . "</a></td>\n";
                         $wkly .= "            </tr>\n";
                     }
