@@ -20,8 +20,8 @@ include_once "docs.php";
     <header>
 
         <h1>Physics&nbsp;<?php echo $term; ?></h1>
-        <p><img src="assets/img/201.jpg"></p>
         <?php if ( $subtitle ) echo "<p>$subtitle</p>"; ?>
+        <p><img src="assets/img/201.jpg"></p>
         <p><?php echo $season; ?>&nbsp;<?php echo $year; ?></p>
 <?php 
 if ( $user )
@@ -40,9 +40,7 @@ else
 
     <div class="col">
 
-        <h2>Class docs</h2><?php echo $docs; ?>
-
-        <h2>Extra docs</h2><?php echo $supp; ?>
+        <h2>Extra docs</h2><?php echo $docs; ?><?php echo $supp; ?>
 
         <h2>General docs</h2>
         <ul>
@@ -51,13 +49,7 @@ else
             <li><a href='resources/notations.pdf'>Notations</a></li>
         </ul>
 
-        <p>Still looking for help? Check out <a href="http://physicsforums.com">PhysicsForums.com</a>!</p>
-        
-    </div>
-
-    <div class="col">
-
-        <h2>My archives</h2>
+        <h2>Archived docs</h2>
         <dl>
             <dt>2012 Lecture Notes</dt>
             <dd>
@@ -70,6 +62,12 @@ else
             <dd><a href='resources/2011p200ln.pdf'>201&ndash;202&ndash;203</a></dd>
         </dl>
 
+        <p>Still looking for help? Check out <a href="http://physicsforums.com">PhysicsForums.com</a>!</p>
+        
+    </div>
+
+    <div class="col">
+
         <h2>My contact info</h2>
         <dl>
             <dt>Instructor</dt>
@@ -77,7 +75,8 @@ else
             <dt>E-mail</dt>
             <dd><a href='mailto:david.ulrich15@pcc.edu'>david.ulrich15@pcc.edu</a></dd>
             <dt>Time</dt>
-            <dd>Monday, Wednesday <nobr>6:00-8:50 pm</nobr></dd>
+            <dd>Monday, Wednesday</dd>
+            <dd>6:00-8:50 pm</dd>
             <dt>Location</dt>
             <dd>PCC, Rock Creek Campus</dd>
             <dd>Building 7</dd>
