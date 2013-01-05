@@ -2,7 +2,7 @@
 
 session_start();
 $_SESSION['id'] = md5($_POST['id']);
-if ( $_POST['id'] ) header( 'Location: /' );
+if ( $_POST['id'] ) header( 'Location: index.php' );
 
 include_once "utils.php";
 include_once "docs.php";
@@ -23,8 +23,8 @@ include_once "docs.php";
     <header>
 
         <h1>Physics&nbsp;<?php echo $term; ?></h1>
-        <p class="c"><?php echo $season; ?> <?php echo $year; ?></p>
-        <img src="assets/img/201.jpg">
+        <p><img src="assets/img/201.jpg"></p>
+        <p><?php echo $season; ?> <?php echo $year; ?></p>
         <form method="post" action="">
             <p id="login">
                 <input type="password" name="id" onLoad="this.focus()"><br>

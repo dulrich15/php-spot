@@ -1,17 +1,16 @@
 body {
-    margin:0em;
-    padding:0.5em;
-    max-width:800px;
+    margin:0em auto;
+    padding:1em 1em;
+    max-width:1024px;
     background:#ffe;
     overflow-y: scroll;
 }
 body * { 
     font-family:georgia,sans-serif; 
 }
-
 table { 
     margin:1em 0;
-    background:#eee; 
+    background:#bbb; 
 }
 table th,td { 
     padding:5px 10px; 
@@ -24,7 +23,7 @@ table td {
     background:#fff;
 }
 table td.blank { 
-    background:#eee; 
+    background:#aaa; 
 }
 dl dt { 
     font-weight:bold; 
@@ -40,6 +39,23 @@ blockquote cite {
     margin-left:2em;
     display:block;
     text-align:right; 
+}
+header {
+    border-bottom:2px solid #bbb;
+}
+header * {
+    text-align:center;
+}
+header img {
+    margin:0 auto;
+	width:100%;
+//    max-width:800px;
+	-ms-interpolation-mode: bicubic;
+}
+footer {
+    clear:left;
+    text-align:center;
+    border-top:2px solid #bbb;
 }
 a:hover {
     background:yellow;
@@ -57,29 +73,24 @@ a:hover {
     text-align:right;
 }
 
-/* LAYOUT */
-#login {
-    text-align:center;
-}
-h1 {
-    text-align:center;
-}
-.col {
-    width:240px;
-    margin-right:40px;
-    float:left;
-}
-.lastcol {
-    margin-right:0px;
-}
-header img {
-	width:100%;
-	height:auto;
-	-ms-interpolation-mode: bicubic;
-}
-footer {
-    clear:left;
-}
 #wklydocs {
     width:100%;
+}
+
+/* LAYOUT */
+
+.col {
+    width:96%;
+    margin:0 2%;
+    float:left;
+}
+@media screen and (min-width:480px) {
+    .col {
+        width:46%;
+    }
+}
+@media screen and (min-width:960px) {
+    .col {
+        width:29%;
+    }
 }

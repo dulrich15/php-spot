@@ -10,8 +10,8 @@ include_once "docs.php";
 <head>
 
     <title>Physics <?php echo $term; ?>, <?php echo $season; ?> <?php echo $year; ?></title>
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" href="assets/css/main.css" media="screen">
     
 </head>
 
@@ -20,8 +20,8 @@ include_once "docs.php";
     <header>
 
         <h1>Physics&nbsp;<?php echo $term; ?></h1>
-        <p class="c"><?php echo $season; ?> <?php echo $year; ?></p>
-        <img src="assets/img/201.jpg">
+        <p><img src="assets/img/201.jpg"></p>
+        <p><?php echo $season; ?> <?php echo $year; ?></p>
 <?php 
 if ( $user )
     echo "        <p id=\"login\">Hi " . $user['first'] . " &mdash; <a href=\"logout.php\">Logout?</a></p>\n";
@@ -54,7 +54,7 @@ else
         
     </div>
 
-    <div class="col lastcol">
+    <div class="col">
 
         <h2>My archives</h2>
         <dl>
@@ -97,7 +97,7 @@ else
         ?>
 
     </div>
-
+    
     <footer>
 
         <p>Site hosting by Portland Community College, <a href='http://www.pcc.edu'>http://www.pcc.edu</a></p>
