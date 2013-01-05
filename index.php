@@ -21,7 +21,8 @@ include_once "docs.php";
 
         <h1>Physics&nbsp;<?php echo $term; ?></h1>
         <p><img src="assets/img/201.jpg"></p>
-        <p><?php echo $season; ?> <?php echo $year; ?></p>
+        <?php if ( $subtitle ) echo "<p>$subtitle</p>"; ?>
+        <p><?php echo $season; ?>&nbsp;<?php echo $year; ?></p>
 <?php 
 if ( $user )
     echo "        <p id=\"login\">Hi " . $user['first'] . " &mdash; <a href=\"logout.php\">Logout?</a></p>\n";

@@ -7,6 +7,10 @@ if ( $term == 201 ) $season = "Winter";
 if ( $term == 202 ) $season = "Spring";
 if ( $term == 203 ) $season = "Summer";
 
+if ( $term == 201 ) $subtitle = "The motion of idealized systems";
+if ( $term == 202 ) $subtitle = "The properties of matter and energy";
+if ( $term == 203 ) $subtitle = "The microscopic source of force";
+
 $doc_folder = $year . "p" . $term;
 $meta_folder = "meta";
 $supp_folder = "supp";
