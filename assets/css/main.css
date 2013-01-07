@@ -40,6 +40,10 @@ blockquote cite {
     display:block;
     text-align:right; 
 }
+input[type="text"] {
+    border:0;
+    background:white;
+}
 header {
     border-bottom:2px solid #bbb;
 }
