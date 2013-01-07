@@ -1,7 +1,16 @@
 <?php
 
-$year = 2013;
-$term = 201;
+session_start();
+
+if ( isset($_GET['lib']) ) $_SESSION['lib'] = $_GET['lib'];
+else if ( ! isset($_SESSION['lib']) ) $_SESSION['lib'] = "2013p201"; 
+
+$lib = $_SESSION['lib'];
+$meta = "meta";
+$supp_folder = "resources";
+
+$year = substr($lib,0,4);
+$term = substr($lib,5,3);
 
 if ( $term == 201 ) $season = "Winter";
 if ( $term == 202 ) $season = "Spring";
@@ -11,42 +20,49 @@ if ( $term == 201 ) $subtitle = "The motion of idealized systems";
 if ( $term == 202 ) $subtitle = "The properties of matter and energy";
 if ( $term == 203 ) $subtitle = "The microscopic source of force";
 
-$doc_folder = $year . "p" . $term;
-$meta_folder = "meta";
-$supp_folder = "supp";
 $nbr_weeks = 10;
 
-function read_csv($tablename)
+if ( ! file_exists( $_SESSION['lib'] ) )
 {
-    global $doc_folder, $meta_folder;
-    
-    //Move through a CSV file, and output an associative array for each line 
-    ini_set("auto_detect_line_endings", 1); 
-    $current_row = 1; 
-    $handle = fopen($doc_folder . "/" . $meta_folder . "/" . $tablename . ".csv", "r"); 
-    while ( ( $data = fgetcsv($handle, 10000, "," ) ) !== FALSE ) 
-    { 
-        $number_of_fields = count($data); 
-        if ($current_row == 1) 
+    $extra_header = "<p>Sorry for the mess &mdash; work in progress</p>";
+    $hide_footer = 1;
+    include "page_template.php";
+}
+
+function read_csv($folder, $tablename)
+{
+    $csv_array = Array();
+    if ( file_exists($folder . "/" . $tablename . ".csv") )
+    {
+        //Move through a CSV file, and output an associative array for each line 
+        ini_set("auto_detect_line_endings", 1); 
+        $current_row = 1; 
+        $handle = fopen($folder . "/" . $tablename . ".csv", "r"); 
+        while ( ( $data = fgetcsv($handle, 10000, "," ) ) !== FALSE ) 
         { 
-        //Header line 
-            for ($c=0; $c < $number_of_fields; $c++) 
+            $number_of_fields = count($data); 
+            if ($current_row == 1) 
             { 
-                $header_array[$c] = $data[$c]; 
+            //Header line 
+                for ($c=0; $c < $number_of_fields; $c++) 
+                { 
+                    $header_array[$c] = $data[$c]; 
+                } 
             } 
-        } 
-        else 
-        { 
-        //Data line 
-            for ($c=0; $c < $number_of_fields; $c++) 
+            else 
             { 
-                $data_array[$header_array[$c]] = $data[$c]; 
+            //Data line 
+                $data_array['pk'] = $current_row - 1;
+                for ($c=0; $c < $number_of_fields; $c++) 
+                { 
+                    $data_array[$header_array[$c]] = $data[$c]; 
+                } 
+                $csv_array[] = $data_array;
             } 
-            $csv_array[] = $data_array;
+            $current_row++; 
         } 
-        $current_row++; 
-    } 
-    fclose($handle); 
+        fclose($handle); 
+    }
     return $csv_array;
 }
 
@@ -54,15 +70,15 @@ function get_user()
 {
     if ( $_SESSION['id'] ) 
     {
-        $users = array_merge(read_csv('users'),read_csv('roster'));
         $user = '';
+
+        $users = read_csv("$lib/$meta", 'roster');
         foreach ( $users as $key => $value )
-        {
-            if ( $_SESSION['id'] == md5($value['id']) )
-            {
-                $user = $value;
-            }
-        }
+            if ( $_SESSION['id'] == md5($value['id']) ) $user = $value;
+            
+        $users = read_csv('meta','users');
+        foreach ( $users as $key => $value )
+            if ( $_SESSION['id'] == md5($value['id']) ) { $user = $value; } // $user['pk'] = ''; }
     }
     return $user;
 }    
