@@ -80,7 +80,13 @@ function get_user()
             
         $users = read_csv('meta','users');
         foreach ( $users as $key => $value )
-            if ( $_SESSION['id'] == md5($value['id']) ) $user = $value;            
+            {
+                if ( $_SESSION['id'] == md5($value['id']) ) 
+                {
+                    $user = $value;
+                    $user['pk'] += 100;
+                }
+            }
     }
     return $user;
 }    
