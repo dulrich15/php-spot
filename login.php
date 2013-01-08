@@ -5,7 +5,6 @@ $_SESSION['id'] = md5($_POST['id']);
 if ( $_POST['id'] ) header( 'Location: index.php' );
 
 include_once "utils.php";
-include_once "docs.php";
 
 $extra_header = <<<EOT
         <form method="post" action="">

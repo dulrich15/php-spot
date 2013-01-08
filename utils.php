@@ -68,17 +68,19 @@ function read_csv($folder, $tablename)
 
 function get_user()
 {
+    global $lib, $meta;
+    
     if ( $_SESSION['id'] ) 
     {
         $user = '';
 
         $users = read_csv("$lib/$meta", 'roster');
         foreach ( $users as $key => $value )
-            if ( $_SESSION['id'] == md5($value['id']) ) $user = $value;
+            if ( $_SESSION['id'] == md5($value['id']) ) $user = $value;            
             
         $users = read_csv('meta','users');
         foreach ( $users as $key => $value )
-            if ( $_SESSION['id'] == md5($value['id']) ) { $user = $value; } // $user['pk'] = ''; }
+            if ( $_SESSION['id'] == md5($value['id']) ) $user = $value;            
     }
     return $user;
 }    

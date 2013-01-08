@@ -7,9 +7,12 @@ include "grunctions.php";
 include "build_master.php";
 
 $s = $user['pk'];
-if ( $user['access'] < 1 or ! $s ) header ( "Location: index.php" );
-if ( $user['access'] == 2 and isset( $_GET[s] ) ) $s = $_GET['s'];
+if ( $user['access'] == 2 ) 
+{
+if ( isset( $_GET[s] ) ) $s = $_GET['s'];
 else header ( "Location: list_students.php" );
+}
+if ( $user['access'] < 1 or ! $s ) header ( "Location: index.php" );
 
 $extra_header = "<p>Hi " . $user['first'] . " &mdash; <a href=\"logout.php\">Logout</a>";
 $extra_header .= " | <a href=\"index.php\">Back to docs</a>";
