@@ -87,7 +87,8 @@ for ( $c = 1; $c <= count($categories); $c++ )
         $pct = ( $pts + $xtr ) / $max;
         $cat[$c]['Pct'] = $pct;
     }
-    
+
+/*    
     if ( $cat[$c]['Nbr'] ) 
     {
         $body .= "<tr>";
@@ -101,6 +102,7 @@ for ( $c = 1; $c <= count($categories); $c++ )
         $body .= "</td>";
         $body .= "</tr>\n";
     }
+*/
 }
 $body .= "</table>\n\n";
 
