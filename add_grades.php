@@ -155,8 +155,8 @@ for ( $s = 1; $s <= count($students); $s++ )
     if ( isset($master[$s]['Assignment'][$a_key]) )
     {
         $record = $master[$s]['Assignment'][$a_key];
-        $x[$s]['Pts'] = "<input type='text' class='c' name=\"pts$s\" value=\"" . $record['EarnedPoints'] . "\" size=2>";
-        $x[$s]['Xtr'] = "<input type='text' class='c' name=\"xtr$s\" value=\"" . $record['ExtraPoints'] . "\" size=2>";
+        $x[$s]['Pts'] = "<input type='text' class='c' name=\"pts$s\" value=\"" . $record['EarnedPoints'] . "\" size=2 tabindex=1>";
+        $x[$s]['Xtr'] = "<input type='text' class='c' name=\"xtr$s\" value=\"" . $record['ExtraPoints'] . "\" size=2 tabindex=2>";
 
 // Look up any notes ...
 
@@ -169,7 +169,7 @@ for ( $s = 1; $s <= count($students); $s++ )
             if ( $record['NoteID'] == $nid ) break;
         }
         if ( $n == count($notes) ) $nte = "";
-        $x[$s]['Note'] = "<input type='text' name=\"note$s\" value=\"$nte\" size=40>";
+        $x[$s]['Note'] = "<input type='text' name=\"note$s\" value=\"$nte\" size=40 tabindex=3>";
         if ( $nid ) $x[$s]['Note'] .= "<input type=hidden name=\"nid$s\" value=\"$nid\">";
     }
     else 
