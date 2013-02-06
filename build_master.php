@@ -33,7 +33,7 @@ for ( $s = 1; $s <= count($students); $s++ )
       $flg2 = ( $grades[$g]['AssignmentID'] == $assignments[$a]['AssignmentID'] );
       if ( $flg1 and $flg2 ) break;
     } 
-    if ( $g < count($grades) )
+    if ( $g <= count($grades) )
     {
       foreach ( $grades[1] as $key => $val )
       {
