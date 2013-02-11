@@ -136,10 +136,10 @@ $pre .= " ";
 $pre .= $students[$s]['LastName'];
 $pre .= "</h2>\n\n";
 
-$pre .= "<p>";
-$pre .= "Projected grade: <b>$ltr</b>";
-$pre .= " (" . round( 100 * $grade ) . "%)</nobr>";
-$pre .= "</p>\n\n";
+// $pre .= "<p>";
+// $pre .= "Projected grade: <b>$ltr</b>";
+// $pre .= " (" . round( 100 * $grade ) . "%)</nobr>";
+// $pre .= "</p>\n\n";
 
 $body = $pre . $body;
 
