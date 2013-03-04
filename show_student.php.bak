@@ -28,9 +28,9 @@ $body  = "";
 $body .= "<table>\n";
 $body .= "<tr>";
 $body .= "<th></th>";
+$body .= "<th>Max</th>";
 $body .= "<th>Pts</th>";
 $body .= "<th>Xtr</th>";
-$body .= "<th>Max</th>";
 $body .= "<th>Pct</th>";
 $body .= "</tr>\n";
 
@@ -62,9 +62,9 @@ for ( $c = 1; $c <= count($categories); $c++ )
 
                     $body .= "<tr>";
                     $body .= "<th>$nme</th>";
+                    $body .= "<td>$max</td>";
                     $body .= "<td>$pts</td>";
                     $body .= "<td>$xtr</td>";
-                    $body .= "<td>$max</td>";
                     if ( strlen($pct) ) 
                         $body .= "<td>" . round( 100 * $pct ) . "%" . "</td>";
                     else $body .= "<td> </td>";
