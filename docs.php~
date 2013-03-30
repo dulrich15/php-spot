@@ -95,6 +95,8 @@ if ( $supp_array = read_csv("$lib/$meta", 'supp') )
     $supp .= "        </ul>\n";
 }
 
-$xtra = file_get_contents("$lib/$meta/xtra.html");
+$xtra = "x";
+$fn = "$lib/$meta/xtra.html";
+$xtra = file_get_contents($fn);
 
 ?> 

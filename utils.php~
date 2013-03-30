@@ -4,7 +4,7 @@ session_start();
 
 if ( isset($_GET['dir']) ) $_SESSION['lib'] = $_GET['dir'];
 if ( ! $_SESSION['lib'] ) unset($_SESSION['lib']);
-if ( ! isset($_SESSION['lib'] ) ) $_SESSION['lib'] = $current_term;
+if ( ! isset($_SESSION['lib'] ) ) $_SESSION['lib'] = "2013p202";
 
 $lib = $_SESSION['lib'];
 $meta = "meta";
