@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$_SESSION['id'] = md5($_POST['id']);
+$_SESSION['id'] = md5(strtoupper($_POST['id']));
 if ( $_POST['id'] ) header( 'Location: index.php' );
 
 include_once "utils.php";
