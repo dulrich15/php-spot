@@ -27,7 +27,7 @@ if ( $term == 203 ) $nbr_weeks = 7;
 
 if ( ! file_exists( $_SESSION['lib'] ) )
 {
-    $extra_header = "<p>Sorry for the mess &mdash; work in progress</p>";
+    $extra_header = "<p>Materials have moved &mdash; go <a href='spot.davidjulrich.com'>here</a> instead.</p>";
     $hide_footer = 1;
     include "page_template.php";
 }
