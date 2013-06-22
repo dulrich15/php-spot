@@ -2,42 +2,8 @@
 
 date_default_timezone_set('America/Los_Angeles');
 
-function rel_time($from, $to = null)
-{
-    $to = (($to === null) ? (time()) : ($to));
-    $to = ((is_int($to)) ? ($to) : (strtotime($to)));
-    $from = ((is_int($from)) ? ($from) : (strtotime($from)));
-
-    $units = array
-    (
-        "year"   => 29030400, // seconds in a year   (12 months)
-        "month"  => 2419200,  // seconds in a month  (4 weeks)
-        "week"   => 604800,   // seconds in a week   (7 days)
-        "day"    => 86400,    // seconds in a day    (24 hours)
-        "hour"   => 3600,     // seconds in an hour  (60 minutes)
-        "minute" => 60,       // seconds in a minute (60 seconds)
-        "second" => 1         // 1 second
-    );
-
-    $diff = abs($from - $to);
-    $suffix = (($from > $to) ? ("to go") : ("ago"));
-
-    foreach($units as $unit => $mult)
-    if($diff >= $mult)
-    {
-        $and = (($mult != 1) ? ("") : ("and "));
-        $output .= ", ".$and.intval($diff / $mult)." ".$unit.((intval($diff / $mult) == 1) ? ("") : ("s"));
-        $diff -= intval($diff / $mult) * $mult;
-    }
-    $output .= " ".$suffix;
-    $output = substr($output, strlen(", "));
-
-    return $output;
-}
-
-$lib = '2013p203';
-$meta = "meta";
-$supp_folder = "resources";
+$target_date = "Jun 24 2013 18:30:00";
+$lib = "2013p203";
 
 $year = substr($lib,0,4);
 $term = substr($lib,5,3);
@@ -54,12 +20,44 @@ if ( $term == 201 ) $nbr_weeks = 10;
 if ( $term == 202 ) $nbr_weeks = 10;
 if ( $term == 203 ) $nbr_weeks = 7;
 
-if ( strtotime('2013-06-24 18:30') > time() ) {
-    $extra_header = "<p>" . rel_time('2013-06-24 18:00') . "</p>";
-} else {
-    $extra_header = "<p>Course materials have moved &mdash; go <a href='http://spot.davidjulrich.com'>here</a> instead.</p>";
+$countdown_script = <<<EOT
+<script>
+var counter = setInterval(countdown, 1000);
+
+function countdown()
+{
+    var t1 = new Date("$target_date");
+    var t2 = new Date();
+
+    var suffix = "to go";
+    if ( t1 < t2 ) suffix = "ago";
+
+    var delta = Math.abs(t1.getTime() - t2.getTime()) / 1000
+
+    var dys = Math.floor(delta / 86400);
+    var hrs = Math.floor(delta / 3600) % 24;
+    var min = Math.floor(delta / 60) % 60;
+    var sec = Math.floor(delta % 60);
+
+    document.getElementById("countdown").innerHTML  = "";
+    if ( dys > 0 ) document.getElementById("countdown").innerHTML += dys + " days ";
+    if ( hrs > 0 ) document.getElementById("countdown").innerHTML += hrs + " hours ";
+    if ( min > 0 ) document.getElementById("countdown").innerHTML += min + " minutes ";
+    document.getElementById("countdown").innerHTML += sec + " seconds ";
+    document.getElementById("countdown").innerHTML += suffix;
 }
-$hide_footer = 1;
+</script>
+EOT;
+
+$body = "<p style='padding:3em 0;text-align:center'><b>";
+if ( strtotime($target_date) > time() ) {
+    $body .= $countdown_script;
+    $body .= "<span id='countdown'>&nbsp;</span>";
+} else {
+    $body .= "Course materials have moved<br><a href='http://spot.davidjulrich.com'>Go here instead</a>";
+}
+$body .= "</b></p>";
+$hide_footer = 0;
 include "page_template.php";
 
 ?>
