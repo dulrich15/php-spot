@@ -27,7 +27,7 @@ if ( $term == 203 ) $nbr_weeks = 7;
 
 if ( ! file_exists( $_SESSION['lib'] ) )
 {
-    $extra_header = "<p>Materials have moved &mdash; go <a href='spot.davidjulrich.com'>here</a> instead.</p>";
+    $extra_header = "<p style='font-weight:bold;color:red'>Class materials cannot be found.</p><p>Please contact the instructor for more information &mdash; sorry for the inconvenience.</p>";
     $hide_footer = 1;
     include "page_template.php";
 }
